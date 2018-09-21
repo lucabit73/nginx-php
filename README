@@ -25,4 +25,8 @@ We can define a project name with compose '-p' option
 From https://docs.docker.com/compose/reference/envvars/#compose-project-name :
 "For example, if your project name is myapp and it includes two services db and web, then Compose starts containers named myapp_db_1 and myapp_web_1 respectively."
 
+Php-fpm port:
+In Dockerfile (https://github.com/docker-library/php/blob/2e12f1a8b59960c71b1dae4b5593bcc15aa8b05c/7.0/stretch/fpm/Dockerfile) we can see that port 9000 is exposed.
+We can tell nginx to listen at 9000:
+fastcgi_pass php:9000;
 
