@@ -30,3 +30,9 @@ In Dockerfile (https://github.com/docker-library/php/blob/2e12f1a8b59960c71b1dae
 We can tell nginx to listen at 9000:
 fastcgi_pass php:9000;
 
+Compose link statement:
+No need to specify 'link':
+https://docs.docker.com/compose/compose-file/#links
+Docker create a default network, see with:
+docker network
+docker network inspect <PROJECT-NAME>_default
