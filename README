@@ -1,0 +1,28 @@
+Project made with this simple tutorial:
+http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm/
+
+Runs with:
+docker-compose up
+
+Service available on: http://mysite.127.0.0.1.xip.io:8090
+
+Using xip:
+http://xip.io/
+https://serversforhackers.com/c/xipio-and-wildcard-subdomains-for-development
+https://gist.github.com/jdcantrell/8028720
+
+Nginx logs:
+From nginx Dockerfile (https://github.com/nginxinc/docker-nginx/blob/3b108b59619655e3bd4597a059f544afa374b7fb/mainline/stretch/Dockerfile) we can see this code:
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+	&& ln -sf /dev/stderr /var/log/nginx/error.log
+So if we map log to the file in /var/log/nginx/ this go out in standard docker logs.
+We can see this by using 'docker logs' command
+
+Container name:
+Using 'docker-compose up' to start containers, container name take value from project directory.
+We can define a project name with compose '-p' option
+From https://docs.docker.com/compose/reference/envvars/#compose-project-name :
+"For example, if your project name is myapp and it includes two services db and web, then Compose starts containers named myapp_db_1 and myapp_web_1 respectively."
+
+
